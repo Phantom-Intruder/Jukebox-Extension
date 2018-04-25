@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Jukebox Extension",
+  "description": "Chrome add-on for the Jukebox system",
+  "version": "1.0.0.4",
+  "background": {
+    "scripts": ["external_scripts/jquery.js", "background.js"]
+  },
+  "content_scripts": [ {
+        "js":        [ "jquery.js", "runThisOnLoad.js"],
+        "matches":   [ "http://jukebox.dev.volume.lk/"],
+        "run_at":    "document_start"
+  } ],
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Jukebox add-on"
+  },
+"icons": { "16": "icons/icon.png",
+           "48": "icons/icon48.png",
+          "128": "icons/icon128.png" },
+
+  "permissions": [
+    "https://ajax.googleapis.com/",
+    "http://*/*",
+    "https://*/*",
+    "contextMenus",
+	"notifications",
+	  "storage",
+	"idle"
+  ]
+}
